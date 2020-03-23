@@ -7,16 +7,39 @@
 </head>
 <body>
 
-<h1>The Elbow List</h1>
+<div class="main">
 
-<% for(let i = 0; i < posts.length; i++) { %>
-    <article>
+  <h1>The Elbow List</h1>
+  <!-- <% console.log(posts) %> -->
+  <ul>
+  <% for(let i = 0; i < posts.length; i++) { %>
+    <% if (posts[i].sys.contentType.sys.id === 'restaurant') { %>
+      <li>
+        <!-- NAME -->
         <p><%= posts[i].fields.name %></p>
-    </article>
-<% } %>
+        <!-- CUISINE -->
+        <p>
+          <% for(let j = 0; j < posts[i].fields.cuisine.length; j++) { %>
+            <%= posts[i].fields.cuisine[j].fields.name %>,
+          <% } %>
+        </p>
+        <!-- ADDRESS -->
+        <p>
+          <a href="https://www.google.com/search?q=<%= posts[i].fields.address %>">
+            <%= posts[i].fields.address %>
+          </a>
+        </p>
+        <!-- PHONE -->
+        <p>
+          <a href="tel:<%= posts[i].fields.phoneNumber %>"><%= posts[i].fields.phoneNumber %></a>
+        </p>
+        <!-- <p><%= posts[i].fields.cuisine.length %></p> -->
+      </li>
+    <% } %>
+  <% } %>
+  </ul>
 
-<!-- <ul>
-<li></li>
-</ul> -->
+</div>
 
 </body>
+
