@@ -1,42 +1,37 @@
 // Environment
 require('dotenv').config();
 
-const contentfulAPIKey = 'RAljEgwmx1GdP0O6C25roDbf57xL0dPBS4OTEtYWFqA'
+// Required Shit
+var express = require('express')
+var path = require('path')
+var logger = require('morgan')
+var cookieParser = require('cookie-parser')
+var bodyParser = require('body-parser')
+var compression = require('compression')
+var helmet = require('helmet')
+var restaurants = require('./routes/restaurants')
 
-// Tools
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
-const _ = require('lodash');
-const getJSON = require('get-json');
-const request = require('superagent');
-const nodemailer = require('nodemailer');
-const moment = require('moment');
-const contentful = require('contentful');
-const util = require('util')
+var app = express()
 
-// Settings
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(express.static('public'));
-app.set('view engine', 'ejs');
+// View Engine
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'ejs')
+app.set('view cache', true)
+app.use(helmet()) // protect from well known vulnerabilities
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(cookieParser())
+app.use(compression())
+app.use(express.static(path.join(__dirname, 'public')))
 
-// Contentful
-const client = contentful.createClient({
-  space: 'g78w26mus04v',
-  accessToken: 'z32xbTuN-ny-cOm_UIURFeZ8tYt5Ya3_GC74osoG8gI',
-  locale: 'en-US'
-});
+app.use('/', restaurants)
+app.use('/restaurants', restaurants)
 
-app.get('/', (req, res) =>
-  client.getEntries({locale: 'en-US'})
-    // .then(entry => console.log(util.inspect(entry, {showHidden: false, depth: null}))
-    .then (
-      posts => res.render('index', { posts: posts.items })
-      // entry => console.log(util.inspect(entry, {showHidden: false, depth: null}))
-    )
-    // .catch(err => console.log(err))
-);
+// 404
+app.use(function (req, res, next) {
+  var err = new Error('Not Found')
+  err.status = 404
+  next(err)
+})
 
-// Listening
-app.listen(process.env.PORT || 9000);
+module.exports = app
