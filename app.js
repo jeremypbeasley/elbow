@@ -32,11 +32,11 @@ app.get('/', (req, res) =>
   client.getEntries({locale: 'en-US'})
     // .then(entry => console.log(util.inspect(entry, {showHidden: false, depth: null}))
     .then (
-      response => res.render('index', { posts: response.items })
+      posts => res.render('index', { posts: posts.items })
       // entry => console.log(util.inspect(entry, {showHidden: false, depth: null}))
     )
     // .catch(err => console.log(err))
 );
 
 // Listening
-app.listen(process.env.PORT || 7000);
+app.listen(process.env.PORT || 9000);
