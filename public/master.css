@@ -6,8 +6,24 @@ html,
 body {
   font-size: 14px;
   font-family: 'HelveticaNeue';
+  line-height: 19px;
 }
-h1 {
+strong {
+  color: #000;
+  font-weight: normal;
+  font-family: 'HelveticaNeue-Medium';
+}
+.display1 {
+  font-size: 30px;
+  line-height: 35px;
+  font-family: 'HelveticaNeue-Medium';
+  font-weight: normal;
+  color: #000;
+  margin: 0;
+  margin-top: -0.2em;
+  padding: 0;
+}
+.display2 {
   font-size: 20px;
   line-height: 24px;
   font-family: 'HelveticaNeue-Medium';
@@ -34,6 +50,10 @@ body {
   margin: 0;
   font-family: "GTSectraBook", Arial, sans-serif;
   background: #fcfbfa;
+  color: rgba(0,0,0,0.6);
+}
+a {
+  text-decoration: none;
   color: rgba(0,0,0,0.6);
 }
 img {
@@ -89,6 +109,28 @@ span.blue {
   font-family: 'HelveticaNeue-Medium';
   font-weight: normal;
   color: #000;
+}
+.restaurantSection {
+  position: relative;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  padding-top: 16px;
+}
+.buttonBig {
+  background: #00f;
+  color: #fff;
+  padding: 13px;
+  border-radius: 25px;
+  font-family: 'HelveticaNeue-Medium';
+  min-width: 100px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.buttonPostmates {
+  background-color: #1b1b1b;
+}
+.takeoutSummary {
+  width: 70%;
 }
 .restaurantNameBig {
   flex: 100%;

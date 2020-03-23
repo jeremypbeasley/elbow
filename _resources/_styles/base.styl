@@ -17,6 +17,10 @@ body {
   background color-background
   color color-text
 }
+a {
+  text-decoration: none;
+  color: color-text;
+}
 img {
   max-width: 100%;
   // filter: grayscale(100%);
@@ -70,14 +74,30 @@ span.blue {
 .restaurantName {
   font-family: 'HelveticaNeue-Medium';
   font-weight: normal;
-  color: color-black
+  color: color-black;
 }
-
-// .serviceLabel {
-//   border: 1px solid blue;
-//   padding: 8px;
-//   height: 20px;
-//   border-radius: 10px;
-//   margin-right: 8px;
-//   display: inline;
-// }
+.restaurantSection {
+  position: relative;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding-top: unit2;
+}
+.buttonBig {
+  background: blue;
+  color: white;
+  padding: 13px;
+  border-radius: 25px;
+  font-family: 'HelveticaNeue-Medium';
+  // position: absolute;
+  // top: unit2;
+  // right: 0;
+  min-width: 100px;
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.buttonPostmates {
+  background-color: color-postmates;
+}
+.takeoutSummary {
+  width: 70%;
+}

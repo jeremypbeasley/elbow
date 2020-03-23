@@ -10,6 +10,7 @@ var bodyParser = require('body-parser')
 var compression = require('compression')
 var helmet = require('helmet')
 var restaurants = require('./routes/restaurants')
+var util = require('util')
 
 var app = express()
 

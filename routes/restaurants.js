@@ -1,6 +1,8 @@
 var express = require('express')
 var router = express.Router()
 var restaurants = require('../services/restaurants')
+var util = require('util')
+
 
 /* router params */
 router.param('slug', function (req, res, next, slug) {
@@ -25,18 +27,12 @@ router.use(function (req, res, next) {
 
 router.get('/:slug', function (req, res, next) {
   // console.log(req.restaurant);
+  console.log(util.inspect(req.restaurant.fields, {showHidden: false, depth: null}))
   res.render('restaurant', {title: req.restaurant.fields.name, restaurant: req.restaurant})
 })
 
-router.get('/restaurants', function (req, res, next) {
-  res.render('restaurants', {
-    'title': 'Restaurants',
-    'restaurants': req.restaurants
-  })
-})
-
 router.get('/', function (req, res, next) {
-  console.log(req.restaurants);
+  // console.log(req.restaurants);
   res.render('index', {
     'title': 'Restaurants',
     'restaurants': req.restaurants

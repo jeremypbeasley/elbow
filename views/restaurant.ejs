@@ -11,44 +11,75 @@
   <!-- <img class="elbow mb2" src="/_img/elbow.png"/>
   <h1><span class="blue">The Elbow List</span> is a place to celebrate every dine-in restaurant in Seattle fighting to stay open.</h1>
   <div class="divider mt3"></div> -->
-  <ul class="restaurantList">
-      <li class="mt2 mb2">
-        <!-- IMAGE -->
-        <% if (restaurant.fields.photo) {%>
-          <div class="restaurantImage mb2" style="background-image: url(http:<%= restaurant.fields.photo.fields.file.url %>)"></div>
-        <% } else { %>
-          <div class="restaurantImage mb2"></div>
-        <% } %>
-        <div class="restaurantDetails">
-          <!-- NAME -->
-          <div class="restaurantName mb1"><%= restaurant.fields.name %></div>
-          <div class="mb1">1.2 miles away</div>
-          <!-- CUISINE -->
-          <div class="restaurantCuisine mb1">
-            <% for(let j = 0; j < restaurant.fields.cuisine.length; j++) { %>
-              <%= restaurant.fields.cuisine[j].fields.name %>
-            <% } %>
-          </div>
-          <!-- SERVICE -->
-          <% for(let k = 0; k < restaurant.fields.service.length; k++) { %>
-            <div class="serviceLabel mb1">
-              <span class="blue"><%= restaurant.fields.service[k].fields.name %></span>, until 4:00 PM
+  <div class="mt3 mb3">
+    <a href="/">See all restaurants</a>
+  </div>
+  <h1 class="display1 mb3 mt3"><%= restaurant.fields.name %></h1>
+        <div class="restaurantSection">
+          <!-- INSTAGRAM -->
+          <% if (restaurant.fields.instagram) { %>
+            <div class="mb2">
+              <a
+                target="_blank"
+                href="http://instagram.com/<%= restaurant.fields.instagram %>"
+              >
+                @<%= restaurant.fields.instagram %>
+              </a>
+            </div>
+          <% } %>
+          <!-- WEBSITE -->
+          <% if (restaurant.fields.website) { %>
+            <div class="mb2">
+              <a
+                target="_blank"
+                href="<%= restaurant.fields.website %>"
+              >
+                <%= restaurant.fields.website %>
+              </a>
             </div>
           <% } %>
           <!-- ADDRESS -->
-          <!-- <p>
-            <a href="https://www.google.com/search?q=<%= restaurant.fields.address %>">
-              <%= restaurant.fields.address %>
-            </a>
-          </p> -->
-          <!-- PHONE -->
-          <!-- <p>
-            <a href="tel:<%= restaurant.fields.phoneNumber %>"><%= restaurant.fields.phoneNumber %></a>
-          </p> -->
-          <!-- <p><%= restaurant.fields.cuisine.length %></p> -->
+          <% if (restaurant.fields.address) { %>
+            <div class="mb2">
+              <a
+                target="_blank"
+                href="https://www.google.com/maps/search/?api=1&query=<%= restaurant.fields.address %>"
+              >
+                <%= restaurant.fields.address %>
+              </a>
+            </div>
+          <% } %>
+          <!-- TAKEOUT -->
+          <% if (restaurant.fields.hasTakeout) { %>
+            <div class="restaurantSection mt2">
+              <div class="mb1"><strong>Takeout</strong></div>
+              <div class="mb2 takeoutSummary"><%= restaurant.fields.takeoutSummary %></div>
+              <% if (restaurant.fields.takeoutMethod === "Phone") { %>
+                <a class="buttonBig buttonCall mb3" href="tel:<%= restaurant.fields.phoneNumber %>">
+                  Call
+                </a>
+              <% } %>
+            </div>
+          <% } %>
+          <!-- DELIVERY -->
+          <% if (restaurant.fields.hasDelivery) { %>
+            <div class="restaurantSection mt2">
+              <div class="mb1"><strong>Delivery</strong></div>
+              <div class="mb2 takeoutSummary"><%= restaurant.fields.deliverySummary %></div>
+              <% if (restaurant.fields.deliveryMethod === "Phone") { %>
+                <a class="buttonBig buttonCall" href="tel:<%= restaurant.fields.phoneNumber %>">
+                  Call
+                </a>
+              <% } %>
+              <% if (restaurant.fields.deliveryMethod === "Postmates") { %>
+                <a class="buttonBig buttonPostmates mb3" href="https://www.google.com/search?q=postmates+app&oq=postmates+app&aqs=chrome..69i57.3113j0j7&sourceid=chrome&ie=UTF-8">
+                  Order on Postmates
+                </a>
+              <% } %>
+            </div>
+          <% } %>
         </div>
-      </li>
-  </ul>
+
 
 </div>
 
