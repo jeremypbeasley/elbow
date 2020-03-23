@@ -13,6 +13,9 @@ h1 {
   font-family: 'HelveticaNeue-Medium';
   font-weight: normal;
   color: #000;
+  margin: 0;
+  margin-top: -0.2em;
+  padding: 0;
 }
 html {
   min-height: 100%;
@@ -37,12 +40,15 @@ img {
   max-width: 100%;
 }
 .main {
-  padding: 24px;
+  padding: 16px;
+}
+.elbow {
+  width: 50px;
 }
 .divider {
   width: 100%;
   height: 1px;
-  background: #000;
+  background: rgba(0,0,0,0.1);
 }
 span.blue {
   color: #00f;
@@ -51,7 +57,7 @@ span.blue {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .restaurantList li {
   border-bottom: 1px dashed rgba(0,0,0,0.1);
@@ -64,10 +70,11 @@ span.blue {
 }
 .restaurantImage {
   background: rgba(0,0,0,0.2);
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   position: relative;
   border-radius: 6px;
+  background-size: cover;
   margin-right: 16px;
 }
 .restaurantName {
