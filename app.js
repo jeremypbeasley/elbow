@@ -36,7 +36,6 @@ app.get('/', (req, res) =>
       // entry => console.log(util.inspect(entry, {showHidden: false, depth: null}))
     )
     // .catch(err => console.log(err))
-
 );
 
 // Listening

@@ -2,6 +2,18 @@
 @import "../../node_modules/flexboxgrid/css/flexboxgrid.css"
 @import "../../node_modules/slick-carousel/slick/slick.css"
 @import "fonts.css" */
+html,
+body {
+  font-size: 14px;
+  font-family: 'HelveticaNeue';
+}
+h1 {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'HelveticaNeue-Medium';
+  font-weight: normal;
+  color: #000;
+}
 html {
   min-height: 100%;
 }
@@ -19,18 +31,49 @@ body {
   margin: 0;
   font-family: "GTSectraBook", Arial, sans-serif;
   background: #fcfbfa;
-  color: #272320;
+  color: rgba(0,0,0,0.6);
 }
 img {
   max-width: 100%;
 }
 .main {
-  padding: 40px;
+  padding: 24px;
 }
-.Divider {
+.divider {
   width: 100%;
   height: 1px;
   background: #000;
+}
+span.blue {
+  color: #00f;
+}
+.restaurantList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 32px;
+}
+.restaurantList li {
+  border-bottom: 1px dashed rgba(0,0,0,0.1);
+  width: 100%;
+  display: flex;
+}
+.restaurantDetails,
+.restaurantImage {
+  float: left;
+}
+.restaurantImage {
+  background: rgba(0,0,0,0.2);
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 6px;
+  margin-right: 16px;
+}
+.restaurantName {
+  font-family: 'HelveticaNeue-Medium';
+  font-weight: normal;
+  color: #000;
 }
 .mb0 {
   margin-bottom: 4px;

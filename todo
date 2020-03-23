@@ -1,0 +1,18 @@
+TO DO:
+
+- Keep most content in Google Maps api
+  - Name
+  - Address
+  - Phone Number
+  -
+- Use Contentful only for management of:
+  - Curation order
+  - Images
+  - Service type available
+  - Method for each service type
+  - Service type summary and menu
+  - Service type hours
+  - Cuisine
+
+
+or do 30 restaurants manually

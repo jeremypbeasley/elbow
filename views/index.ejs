@@ -9,31 +9,42 @@
 
 <div class="main">
 
-  <h1>The Elbow List</h1>
+  <h1><span class="blue">The Elbow List</span> is a place to celebrate every dine-in restaurant that’s fighting to stay open.</h1>
   <!-- <% console.log(posts) %> -->
-  <ul>
+  <ul class="restaurantList">
   <% for(let i = 0; i < posts.length; i++) { %>
     <% if (posts[i].sys.contentType.sys.id === 'restaurant') { %>
-      <li>
-        <!-- NAME -->
-        <p><%= posts[i].fields.name %></p>
-        <!-- CUISINE -->
-        <p>
-          <% for(let j = 0; j < posts[i].fields.cuisine.length; j++) { %>
-            <%= posts[i].fields.cuisine[j].fields.name %>,
+      <li class="mt2 mb2">
+        <!-- IMAGE -->
+        <div class="restaurantImage mb2"></div>
+        <div class="restaurantDetails">
+          <!-- NAME -->
+          <div class="restaurantName mb1"><%= posts[i].fields.name %></div>
+          <div class="mb1">1.2 miles away</div>
+          <!-- CUISINE -->
+          <div class="restaurantCuisine mb1">
+            <% for(let j = 0; j < posts[i].fields.cuisine.length; j++) { %>
+              <%= posts[i].fields.cuisine[j].fields.name %>
+            <% } %>
+          </div>
+          <!-- SERVICE -->
+          <% for(let k = 0; k < posts[i].fields.service.length; k++) { %>
+            <div class="serviceLabel mb1">
+              <span class="blue"><%= posts[i].fields.service[k].fields.name %></span>, until 4:00 PM
+            </div>
           <% } %>
-        </p>
-        <!-- ADDRESS -->
-        <p>
-          <a href="https://www.google.com/search?q=<%= posts[i].fields.address %>">
-            <%= posts[i].fields.address %>
-          </a>
-        </p>
-        <!-- PHONE -->
-        <p>
-          <a href="tel:<%= posts[i].fields.phoneNumber %>"><%= posts[i].fields.phoneNumber %></a>
-        </p>
-        <!-- <p><%= posts[i].fields.cuisine.length %></p> -->
+          <!-- ADDRESS -->
+          <!-- <p>
+            <a href="https://www.google.com/search?q=<%= posts[i].fields.address %>">
+              <%= posts[i].fields.address %>
+            </a>
+          </p> -->
+          <!-- PHONE -->
+          <!-- <p>
+            <a href="tel:<%= posts[i].fields.phoneNumber %>"><%= posts[i].fields.phoneNumber %></a>
+          </p> -->
+          <!-- <p><%= posts[i].fields.cuisine.length %></p> -->
+        </div>
       </li>
     <% } %>
   <% } %>

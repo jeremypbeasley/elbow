@@ -22,13 +22,50 @@ img {
   // filter: grayscale(100%);
 }
 .main {
-  padding: unit5
+  padding: unit3;
 }
-
-
-.Divider {
+.divider {
   width: 100%;
   height: 1px;
   background: black;
 }
+span.blue {
+  color: blue;
+}
+.restaurantList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: unit4
+}
+.restaurantList li {
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: flex;
+}
+.restaurantDetails,
+.restaurantImage {
+  float: left;
+}
+.restaurantImage {
+  background: rgba(0, 0, 0, 0.2);
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border-radius: 6px;
+  margin-right: 16px;
+}
+.restaurantName {
+  font-family: 'HelveticaNeue-Medium';
+  font-weight: normal;
+  color: color-black
+}
 
+// .serviceLabel {
+//   border: 1px solid blue;
+//   padding: 8px;
+//   height: 20px;
+//   border-radius: 10px;
+//   margin-right: 8px;
+//   display: inline;
+// }
