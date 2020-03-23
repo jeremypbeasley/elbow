@@ -1,36 +1,39 @@
 {
   "name": "TheElbowList",
   "version": "0.0.0",
-  "description": "A list of all your favorite dine-in restaurants that are now serving take out or delivery.",
+  "description": "A place to celebrate every dine-in restaurant in Seattle fighting to stay open.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "npm run production",
+    "heroku-prebuild": "npm install",
+    "dev": "cross-env NODE_ENV=development nodemon ./bin/www",
+    "production": "cross-env NODE_ENV=production node ./bin/www"
   },
   "repository": {
-    "type": "git",
-    "url": "idk"
+    "type": "git"
   },
   "engines": {
     "node": "6.9.1",
     "npm": "4.1.1"
   },
-  "keywords": [
-    "idk"
-  ],
+  "config": {
+    "accessToken": "z32xbTuN-ny-cOm_UIURFeZ8tYt5Ya3_GC74osoG8gI",
+    "space": "g78w26mus04v"
+  },
   "author": "Jeremy P. Beasley",
   "license": "ISC",
   "dependencies": {
     "@google/maps": "^1.1.0",
     "@googlemaps/google-maps-services-js": "^2.3.1",
     "bcryptjs": "^0.7.12",
-    "body-parser": "^1.9.0",
-    "contentful": "^7.14.0",
+    "body-parser": "^1.18.3",
+    "contentful": "^3.6.4",
     "contentful-import": "^7.7.0",
     "contentful-management": "latest",
-    "cookie-parser": "^1.3.3",
+    "cookie-parser": "~1.4.3",
     "dotenv": "^4.0.0",
     "ejs": "^2.4.2",
-    "express": "^4.17.0",
+    "express": "^4.16.4",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.8.2",
     "get-json": "^0.0.3",
@@ -44,13 +47,17 @@
     "lodash": "latest",
     "method-override": "^2.2.0",
     "moment": "^2.18.1",
-    "morgan": "^1.3.2",
+    "morgan": "^1.9.1",
     "nodemailer": "3.1.8",
-    "nodemon": "^1.9.2",
+    "nodemon": "^1.18.7",
     "pify": "latest",
-    "pug": "latest",
     "q": "^1.0.1",
     "stripe": "latest",
-    "superagent": "latest"
+    "superagent": "latest",
+    "compression": "^1.6.2",
+    "cross-env": "^5.0.1",
+    "debug": "~2.2.0",
+    "helmet": "^2.2.0",
+    "serve-favicon": "^2.5.0"
   }
 }
