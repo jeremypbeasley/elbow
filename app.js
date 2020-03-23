@@ -12,7 +12,6 @@ const getJSON = require('get-json');
 const request = require('superagent');
 const nodemailer = require('nodemailer');
 const moment = require('moment');
-// const contentful = require('contentful-management');
 const contentful = require('contentful');
 const util = require('util')
 
@@ -28,21 +27,6 @@ const client = contentful.createClient({
   accessToken: 'z32xbTuN-ny-cOm_UIURFeZ8tYt5Ya3_GC74osoG8gI',
   locale: 'en-US'
 });
-// const client = contentful.createClient({
-//   accessToken: 'CFPAT-MWKAKhXEjhyiirN96dMlbCS501tE8y8uqRp6W-GdD5o',
-//   locale: 'en-US'
-// })
-
-console.log('------------------------------------------------------------')
-
-// app.get('/', (req, res) =>
-//   client.getSpace('g78w26mus04v')
-//   .then((environment) => environment.getEntries({locale: 'de-fr'}))
-//   .then(
-//       // (response) => res.render('index', { posts: response.items })
-//       (response) => console.log(util.inspect(response.items, {showHidden: false, depth: null}))
-//     )
-//   );
 
 app.get('/', (req, res) =>
   client.getEntries({locale: 'en-US'})
@@ -56,12 +40,4 @@ app.get('/', (req, res) =>
 );
 
 // Listening
-app.listen(process.env.PORT || 8000);
-
-
-
-//
-//
-// client.getEntries({locale: 'en-US'})
-//   .then(entry => console.log(util.inspect(entry, {showHidden: false, depth: null})))
-//   .catch(err => console.log(err));
+app.listen(process.env.PORT || 7000);
