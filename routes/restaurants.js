@@ -37,7 +37,7 @@ router.get('/restaurants', function (req, res, next) {
 
 router.get('/', function (req, res, next) {
   console.log(req.restaurants);
-  res.render('restaurants', {
+  res.render('index', {
     'title': 'Restaurants',
     'restaurants': req.restaurants
   })
