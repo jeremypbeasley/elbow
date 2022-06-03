@@ -43,7 +43,7 @@
     "grunt-contrib-stylus": "^1.2.0",
     "grunt-contrib-watch": "^1.1.0",
     "jquery": "latest",
-    "jquery-validation": "^1.16.0",
+    "jquery-validation": "^1.19.4",
     "lodash": "latest",
     "method-override": "^2.2.0",
     "moment": "^2.18.1",
