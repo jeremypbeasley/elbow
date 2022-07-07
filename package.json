@@ -46,7 +46,7 @@
     "jquery-validation": "^1.16.0",
     "lodash": "latest",
     "method-override": "^2.2.0",
-    "moment": "^2.18.1",
+    "moment": "^2.29.4",
     "morgan": "^1.9.1",
     "nodemailer": "3.1.8",
     "nodemon": "^1.18.7",
